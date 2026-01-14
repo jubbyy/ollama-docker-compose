@@ -1,0 +1,11 @@
+services:
+  ollama:
+    image: ollama/ollama:latest
+    restart: unless-stopped
+    environment:
+      - OLLAMA_ORIGINS=*
+      - OLLAMA_KEEP_ALIVE=-1
+      - OLLAMA_FLASH_ATTENTION=1
+    volumes:
+      - /mnt/ollama:/root/.ollama
+    runtime: nvidia
